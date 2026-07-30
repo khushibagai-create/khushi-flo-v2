@@ -111,8 +111,22 @@
   .pill-primary { background: var(--pink-hot); color: #fff; box-shadow: 0 8px 20px rgba(250,78,124,.35); }
   .pill-ghost { background: #fff; color: var(--ink); box-shadow: 0 4px 14px rgba(28,27,31,.08); }
 
+
+  /* Desktop scale-up */
+  @media (min-width: 1200px) {
+    .hero { padding: 56px 24px 96px; }
+    .week-strip { font-size: 13px; gap: 30px; margin-bottom: 56px; }
+    .circle-wrap { width: 430px; height: 430px; }
+    .cycle-circle .big { font-size: 64px; }
+    .cycle-circle .sub { font-size: 17px; max-width: 280px; }
+    .cycle-circle .eyebrow { font-size: 14px; }
+    .hero h1 { font-size: 42px; }
+    .hero .tagline { font-size: 19px; max-width: 680px; }
+  }
+
   /* ---------- LAYOUT ---------- */
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+  @media (min-width: 1600px) { .wrap { max-width: 1360px; } }
   section { padding: 64px 0 8px; }
   .section-label { font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 8px; }
   h2 { font-size: 28px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 8px; }
