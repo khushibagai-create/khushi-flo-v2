@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Khushi Bagai · Senior PM, Predictive Growth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink-bg: #FDE9F1;
+    --pink-soft: #FBD5E2;
+    --pink-hot: #FA4E7C;
+    --pink-deep: #E63E6C;
+    --pink-border: #FFB9CD;
+    --pink-chip: #FCE3EB;
+    --teal: #2FB5B0;
+    --teal-deep: #1E9C97;
+    --teal-soft: #BDE8E6;
+    --teal-bg: #E3F5F4;
+    --teal-chip: #DDF2F1;
+    --lavender: #CBB7F0;
+    --lavender-bg: #F0EAFB;
+    --purple: #8A63C9;
+    --ink: #1C1B1F;
+    --ink-soft: #5A575F;
+    --card: #FFFFFF;
+    --radius: 20px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--ink);
+    background: #F8FCFC;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 92px;
+  }
+  a { color: inherit; }
+
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(90rem 42rem at 85% -10%, var(--pink-soft) 0%, transparent 55%),
+      radial-gradient(70rem 40rem at 10% 110%, var(--teal-soft) 0%, transparent 60%),
+      linear-gradient(160deg, var(--teal-bg) 0%, #F0FAF9 45%, var(--pink-bg) 100%);
+    padding: 40px 24px 72px; text-align: center;
+  }
+  .week-strip {
+    display: flex; justify-content: center; gap: 22px;
+    font-size: 12px; font-weight: 600; letter-spacing: .08em;
+    color: var(--ink-soft); margin-bottom: 48px; text-transform: uppercase;
+  }
+  .week-strip span { position: relative; padding: 6px 2px; }
+  .week-strip .today { color: var(--ink); font-weight: 800; }
+  .week-strip .today::after {
+    content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+    bottom: -8px; width: 5px; height: 5px; border-radius: 50%; background: var(--teal);
+  }
+  @media (max-width: 430px) { .week-strip { gap: 12px; font-size: 11px; } }
+  .circle-wrap { position: relative; width: 340px; height: 340px; max-width: 82vw; max-height: 82vw; margin: 0 auto 28px; }
+  .circle-ring { position: absolute; inset: 0; transform: rotate(-90deg); }
+  .circle-ring circle { fill: none; stroke-width: 5; stroke-linecap: round; }
+  .circle-ring .track { stroke: rgba(47, 181, 176, .18); }
+  .circle-ring .prog {
+    stroke: var(--teal);
+    stroke-dasharray: 1014; stroke-dashoffset: 1014;
+    animation: ring 1.6s cubic-bezier(.4,0,.2,1) .3s forwards;
+  }
+  @keyframes ring { to { stroke-dashoffset: 100; } }
+  .cycle-circle {
+    position: absolute; inset: 14px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #FFFFFF 0%, #F4FBFA 55%, #E8F6F5 100%);
+    box-shadow: 0 24px 60px rgba(47,181,176,.18), 0 4px 16px rgba(250,78,124,.08), inset 0 1px 0 rgba(255,255,255,.9);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; padding: 36px; text-align: center;
+  }
+  .cycle-circle .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-deep); }
+  .cycle-circle .big { font-size: 54px; font-weight: 800; line-height: 1.02; letter-spacing: -.02em; }
+  .cycle-circle .sub { font-size: 15px; color: var(--ink-soft); max-width: 230px; }
+  .circle-cta {
+    margin-top: 10px;
+    display: inline-block;
+    background: var(--teal);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 9px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(47, 181, 176, 0.35);
+    transition: transform .15s ease;
+  }
+  .circle-cta:hover { transform: translateY(-1px); }
+  .hero h1 { font-size: 34px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 6px; }
+  .hero .tagline { font-size: 17px; color: var(--ink-soft); max-width: 600px; margin: 0 auto 26px; }
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .pill {
+    display: inline-block; padding: 12px 26px; border-radius: 999px;
+    font-size: 15px; font-weight: 700; text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .pill:hover { transform: translateY(-1px); }
+  .pill-primary { background: var(--pink-hot); color: #fff; box-shadow: 0 8px 20px rgba(250,78,124,.35); }
+  .pill-ghost { background: #fff; color: var(--ink); box-shadow: 0 4px 14px rgba(28,27,31,.08); }
+
+  /* ---------- LAYOUT ---------- */
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 64px 0 8px; }
+  .section-label { font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 8px; }
+  h2 { font-size: 28px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 8px; }
+  .section-intro { color: var(--ink-soft); font-size: 16px; max-width: 640px; margin-bottom: 32px; }
+
+  /* ---------- PREDICTION PANEL ---------- */
+  .prediction {
+    background: #fff; border-radius: 28px; padding: 44px 36px;
+    box-shadow: 0 14px 44px rgba(47,181,176,.12);
+  }
+  @media (max-width: 600px) { .prediction { padding: 32px 20px; } }
+  .funnel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 48px; margin-top: 18px; }
+  @media (max-width: 700px) { .funnel-grid { grid-template-columns: 1fr; } }
+  .panel-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; flex-wrap: wrap; }
+  .panel-head .trial-toggle { margin-bottom: 0; }
+
+  .funnel-block h3 { font-size: 18px; font-weight: 800; margin-bottom: 18px; }
+  .fbar { margin-bottom: 18px; }
+  .fbar .flabel { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .fbar .flabel .fv { font-weight: 800; color: var(--teal-deep); }
+  .fbar .track { height: 14px; border-radius: 999px; background: var(--teal-bg); overflow: hidden; }
+  .fbar .fill {
+    height: 100%; width: 0; border-radius: 999px;
+    background: var(--teal);
+    transition: width 1.3s cubic-bezier(.4,0,.2,1);
+  }
+  .fbar:nth-child(2) .fill { background: var(--purple); }
+  .fbar:nth-child(3) .fill { background: var(--pink-hot); }
+  .fbar:nth-child(4) .fill { background: var(--teal-deep); }
+  .fnote { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+
+  /* toggle card: built vs applied */
+  .trial-toggle {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--lavender-bg); border-radius: 999px;
+    padding: 10px 18px; margin-bottom: 20px;
+    cursor: pointer; user-select: none; font-size: 15px; font-weight: 600;
+  }
+  .switch { position: relative; width: 46px; height: 27px; border-radius: 999px; background: #D9CDEF; transition: background .25s; flex-shrink: 0; }
+  .switch::after {
+    content: ''; position: absolute; top: 3px; left: 3px;
+    width: 21px; height: 21px; border-radius: 50%; background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2); transition: transform .25s;
+  }
+  .trial-toggle.on .switch { background: var(--purple); }
+  .trial-toggle.on .switch::after { transform: translateX(19px); }
+  .plan-card {
+    position: relative; background: var(--card);
+    border: 2px solid var(--teal-soft); border-radius: var(--radius);
+    padding: 34px 28px 22px;
+  }
+  .ribbon {
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--teal); color: #fff;
+    font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+    padding: 5px 16px; border-radius: 999px; white-space: nowrap;
+  }
+  .plan-card h3 { font-size: 21px; font-weight: 800; margin-bottom: 4px; }
+  .plan-card .plan-sub { font-size: 14px; color: var(--ink-soft); margin-bottom: 18px; }
+  .receipt {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 12px 0; border-top: 1px solid #E0F2F1; font-size: 15px;
+  }
+  .receipt .num { font-weight: 800; font-size: 16px; color: var(--teal-deep); white-space: nowrap; }
+  .plan-view { display: none; }
+  .plan-view.active { display: block; animation: fadein .4s ease; }
+  @keyframes fadein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* ---------- INSIGHT CARDS ---------- */
+  .insight-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 900px) {
+    .insight-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding-bottom: 12px; margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+    .insight { min-width: 210px; scroll-snap-align: start; }
+  }
+  .insight { border-radius: 18px; border: 2px solid var(--teal-soft); background: #fff; padding: 18px 16px 16px; text-align: center; }
+  .insight:nth-child(2) { border-color: var(--lavender); background: var(--lavender-bg); }
+  .insight:nth-child(3) { border-color: var(--pink-border); background: var(--pink-bg); }
+  .insight:nth-child(4) { border-color: var(--teal-soft); background: var(--teal-bg); }
+  .insight .tag {
+    display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--teal-deep); background: rgba(47,181,176,.12); border-radius: 999px; padding: 3px 10px; margin-bottom: 10px;
+  }
+  .insight:nth-child(2) .tag { color: var(--purple); background: rgba(138,99,201,.12); }
+  .insight:nth-child(3) .tag { color: var(--pink-deep); background: rgba(250,78,124,.10); }
+  .insight .val { font-size: 30px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+  .insight .desc { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+
+  /* ---------- CHIPS ---------- */
+  .chip-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--teal-chip); border: 2px solid transparent;
+    border-radius: 999px; padding: 9px 18px;
+    font-size: 14px; font-weight: 600; cursor: pointer; user-select: none;
+    transition: all .18s ease;
+  }
+  .chip:hover { transform: translateY(-1px); }
+  .chip:focus-visible, .trial-toggle:focus-visible { outline: 2px solid var(--teal-deep); outline-offset: 2px; }
+  .chip.selected { background: #fff; border-color: var(--teal); font-weight: 700; }
+  .chip.selected::after {
+    content: '✓'; display: inline-flex; align-items: center; justify-content: center;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--teal); color: #fff; font-size: 10px; font-weight: 800;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-card {
+    background: #fff; border-radius: var(--radius); padding: 30px 30px 22px; margin-bottom: 20px;
+    box-shadow: 0 6px 24px rgba(28,27,31,.06); border: 1px solid #E5F2F1;
+  }
+  .exp-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 4px; }
+  .exp-head h3 { font-size: 19px; font-weight: 800; }
+  .exp-head .dates { font-size: 13px; font-weight: 700; color: var(--pink-deep); background: var(--pink-bg); padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .exp-card .context { font-size: 14px; color: var(--ink-soft); margin-bottom: 14px; }
+  .exp-card ul { list-style: none; }
+  .exp-card li { position: relative; padding: 7px 0 7px 26px; font-size: 15px; transition: opacity .3s ease; }
+  .exp-card li::before { content: ''; position: absolute; left: 4px; top: 15px; width: 8px; height: 8px; border-radius: 50%; background: var(--teal); }
+  .exp-card li.dim { opacity: .22; }
+  .exp-card li strong { font-weight: 700; }
+  .exp-card li .n { color: var(--teal-deep); font-weight: 800; }
+  .exp-card.dim-all { opacity: .35; }
+
+  /* ---------- METHOD ---------- */
+  .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 760px) { .method-grid { grid-template-columns: 1fr; } }
+  .method-card { border-radius: 18px; padding: 26px 24px; border: 2px solid var(--teal-soft); background: #fff; }
+  .method-card:nth-child(2) { border-color: var(--lavender); }
+  .method-card:nth-child(3) { border-color: var(--pink-border); }
+  .method-card:nth-child(4) { border-color: var(--teal-soft); background: var(--teal-bg); }
+  .method-card h4 { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+  .method-card p { font-size: 14.5px; color: var(--ink-soft); }
+  .method-card p strong { color: var(--ink); font-weight: 700; }
+
+  /* ---------- VELOCITY ---------- */
+  .velocity { background: linear-gradient(150deg, var(--pink-bg) 0%, var(--teal-bg) 100%); border-radius: 28px; padding: 44px 36px; margin-top: 8px; }
+  @media (max-width: 600px) { .velocity { padding: 32px 22px; } }
+  .vel-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-top: 26px; }
+  @media (max-width: 820px) { .vel-grid { grid-template-columns: 1fr; } }
+  .vel-item { background: #fff; border-radius: 16px; padding: 22px 20px; box-shadow: 0 4px 16px rgba(28,27,31,.05); }
+  .vel-item .big { font-size: 26px; font-weight: 800; color: var(--pink-deep); letter-spacing: -.02em; }
+  .vel-item p { font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    margin-top: 72px;
+    background: radial-gradient(60rem 30rem at 90% 120%, var(--pink-soft) 0%, transparent 60%),
+                linear-gradient(160deg, var(--teal-bg) 0%, var(--pink-bg) 100%);
+    padding: 64px 24px 72px; text-align: center;
+  }
+  footer h2 { margin-bottom: 8px; }
+  footer .edu { font-size: 14px; color: var(--ink-soft); margin-bottom: 26px; }
+
+  /* ---------- TAB BAR ---------- */
+  .tabbar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(255,255,255,.94); backdrop-filter: blur(14px);
+    border-top: 1px solid #E2F0EF;
+    display: flex; justify-content: center; gap: clamp(8px, 4vw, 44px);
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  }
+  .tab {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    font-size: 11px; font-weight: 600; color: var(--ink-soft);
+    text-decoration: none; padding: 4px 10px; border-radius: 12px; transition: color .2s;
+  }
+  .tab svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+  .tab.active { color: var(--teal-deep); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero" id="today">
+  <div class="week-strip">
+    <span>Ohana</span><span>Winuall</span><span>Crafto</span><span class="today">Habuild</span><span>Flo?</span>
+  </div>
+  <div class="circle-wrap">
+    <svg class="circle-ring" viewBox="0 0 340 340">
+      <circle class="track" cx="170" cy="170" r="163"/>
+      <circle class="prog" cx="170" cy="170" r="163"/>
+    </svg>
+    <div class="cycle-circle">
+      <div class="eyebrow">Career cycle &middot; Year 6</div>
+      <div class="big">Flo?</div>
+      <div class="sub">Five years of growth and personalisation behind me. The ring closes at the next chapter.</div>
+    </div>
+  </div>
+  <h1>Khushi Bagai</h1>
+  <p class="tagline">Product Manager. 5+ years on consumer products where personalisation, experimentation, and instrumentation did the growing. The last six months in women's health at Habuild.</p>
+  <div class="cta-row">
+    <a class="pill pill-primary" href="mailto:khushibagai30.kb@gmail.com">Email me</a>
+    <a class="pill pill-ghost" href="https://www.linkedin.com/in/khushi-bagai" target="_blank">LinkedIn</a>
+    <a class="pill pill-ghost" href="https://khushisdigitalgarden.substack.com" target="_blank">My writing</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- PREDICTIONS -->
+  <section id="fit">
+    <div class="prediction reveal">
+      <div class="section-label">Predictions updated</div>
+      <h2>Signals I have already moved</h2>
+      <p class="section-intro" style="margin-bottom: 0;">pLTV work is prediction feeding decisions. My track record is the decision side: funnels, ranking, and experiments that moved the metrics a model would be trained on.</p>
+      <div class="funnel-block">
+        <div class="funnel-grid">
+          <div class="fbar"><div class="flabel"><span>D1 conversion</span><span class="fv">+58%</span></div><div class="track"><div class="fill" data-w="96"></div></div></div>
+          <div class="fbar"><div class="flabel"><span>D7 conversion</span><span class="fv">+45%</span></div><div class="track"><div class="fill" data-w="75"></div></div></div>
+          <div class="fbar"><div class="flabel"><span>Trial success, 10+ pricing experiments</span><span class="fv">+38%</span></div><div class="track"><div class="fill" data-w="63"></div></div></div>
+          <div class="fbar"><div class="flabel"><span>Daily content creation, one quarter</span><span class="fv">+20%</span></div><div class="track"><div class="fill" data-w="33"></div></div></div>
+        </div>
+        <p class="fnote">Each bar is a program of experiments, not a single launch. All figures from shipped work at Crafto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGINE -->
+  <section id="engine">
+    <div class="prediction reveal">
+      <div class="panel-head">
+        <div>
+          <div class="section-label">Ranking in production</div>
+          <h2>Recommendation engine, 0 to 1</h2>
+          <p class="section-intro" style="margin-bottom: 0;">Personalised UGC for 25M+ MAU at Crafto.</p>
+        </div>
+        <div class="trial-toggle" id="trialToggle" role="switch" aria-checked="false" tabindex="0">
+          <span>See how it applies to pLTV</span>
+          <span class="switch"></span>
+        </div>
+      </div>
+      <div class="plan-view active" id="viewBuilt" style="margin-top: 24px;">
+        <div class="plan-card">
+          <div class="ribbon">What I built</div>
+          <div class="receipt" style="border-top: none;"><span>Reached PGC-level engagement with user-generated content</span><span class="num">Shipped</span></div>
+          <div class="receipt"><span>Seeding logic balancing personalisation and randomness, surfacing high performers</span><span class="num">Designed</span></div>
+          <div class="receipt"><span>Internal moderation platform and tracking for 6+ team members</span><span class="num">Built</span></div>
+        </div>
+      </div>
+      <div class="plan-view" id="viewApplied" style="margin-top: 24px;">
+        <div class="plan-card">
+          <div class="ribbon">How it maps</div>
+          <div class="receipt" style="border-top: none;"><span>Lived the precision-vs-exploration tradeoff every ranking and scoring system runs on</span><span class="num">Tradeoffs</span></div>
+          <div class="receipt"><span>Partnered daily with data teams; fluent in cohorts, signals, and evaluation</span><span class="num">Fluency</span></div>
+          <div class="receipt"><span>Every feature instrumented pre-launch, so models train on clean ground truth</span><span class="num">Discipline</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section id="insights">
+    <div class="section-label">My daily insights</div>
+    <h2>The numbers behind the story</h2>
+    <div class="insight-row reveal" style="margin-top: 24px;">
+      <div class="insight">
+        <span class="tag">Personalisation</span>
+        <div class="val">0&#8594;1</div>
+        <div class="desc">recommendation engine reaching PGC-level engagement</div>
+      </div>
+      <div class="insight">
+        <span class="tag">Experimentation</span>
+        <div class="val"><span class="count" data-target="58" data-prefix="+" data-suffix="%">0</span></div>
+        <div class="desc">D1 conversion across a program of funnel experiments</div>
+      </div>
+      <div class="insight">
+        <span class="tag">Scale</span>
+        <div class="val"><span class="count" data-target="25" data-suffix="M+">0</span></div>
+        <div class="desc">MAU at Crafto, 10M DAU on festival days</div>
+      </div>
+      <div class="insight">
+        <span class="tag">Women's health</span>
+        <div class="val">15.3M</div>
+        <div class="desc">members at Habuild, mostly women over 40</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="work">
+    <div class="section-label">Log your symptoms</div>
+    <h2>Experience</h2>
+    <p class="section-intro">Tap a skill to see where I have shipped it. Five years, four consumer companies.</p>
+    <div class="chip-bar" id="chips">
+      <span class="chip selected" data-tag="all" role="button" tabindex="0" aria-pressed="true">Everything</span>
+      <span class="chip" data-tag="personalisation" role="button" tabindex="0" aria-pressed="false">Personalisation</span>
+      <span class="chip" data-tag="experiments" role="button" tabindex="0" aria-pressed="false">Experimentation</span>
+      <span class="chip" data-tag="funnel" role="button" tabindex="0" aria-pressed="false">Funnels</span>
+      <span class="chip" data-tag="data" role="button" tabindex="0" aria-pressed="false">Instrumentation</span>
+      <span class="chip" data-tag="zero" role="button" tabindex="0" aria-pressed="false">0 to 1</span>
+    </div>
+
+    <div class="exp-card reveal" data-tags="personalisation experiments funnel data zero">
+      <div class="exp-head">
+        <h3>Product Manager · Habuild</h3>
+        <span class="dates">Feb 2026 to present</span>
+      </div>
+      <p class="context">India's largest bootstrapped yoga and wellness company. 15.3M+ members, 600K+ paid subscribers across 169+ countries, primarily women over 40. I lead the App Pod: 2 designers, 6 engineers, 1 APM.</p>
+      <ul>
+        <li data-tags="personalisation funnel">Revamped the home screen end to end, driving a <span class="n">~20% lift</span> in discovery of daily habit features. Turned home from a session list into a daily planner.</li>
+        <li data-tags="experiments">Drove <span class="n">+30% activation</span> and <span class="n">+15% completion</span> on Box Breathing by iterating on product flow and design.</li>
+        <li data-tags="zero data">Built 0 to 1 habit features end to end with AI. Shipped <strong>5+ features</strong> from concept to live, data-instrumented product, compressing the typical 2-week cycle into <strong>3 days</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card reveal" data-tags="personalisation experiments funnel data zero">
+      <div class="exp-head">
+        <h3>Product Manager · Kutumb (Crafto)</h3>
+        <span class="dates">Aug 2023 to Feb 2026</span>
+      </div>
+      <p class="context">India's largest content-sharing app: personalised WhatsApp statuses, Facebook and Instagram posts. 3M+ DAU, 10M on festival days, 25M+ MAU, 3M+ active paid subscribers.</p>
+      <ul>
+        <li data-tags="personalisation zero"><strong>Recommendation system:</strong> built a 0 to 1 recommendation engine for personalised UGC, achieving PGC-level engagement. Designed seeding logic balancing personalisation and randomness, surfacing high-performing content.</li>
+        <li data-tags="experiments funnel"><strong>Conversion (D1 <span class="n">+58%</span>, D7 <span class="n">+45%</span>):</strong> premium screen during onboarding (+14% D1), expanded content to short reel videos (+22% D1), photo uploads without backgrounds (+10% D1), personalised quotes and videos with the user's name styling (+11% D1).</li>
+        <li data-tags="funnel data"><strong>Login funnel (<span class="n">+12%</span> registration):</strong> redesigned login screen UI (+2%), autofill phone number hints (+3%), removed Truecaller integration based on data insights (+5%), deep links for language and content ads (+2%).</li>
+        <li data-tags="experiments"><strong>Monetization:</strong> introduced a 2-day free trial driving a <span class="n">+30%</span> lift in overall payment conversion. Ran 10+ pricing UI experiments for trial screens, improving trial success by <span class="n">+38%</span>.</li>
+        <li data-tags="personalisation experiments"><strong>Engagement and virality (<span class="n">+50%</span> shares and downloads):</strong> custom placement of user photos and name (+27% s/d) became 90% of top-10 content and lifted festival-day payment conversion <span class="n">+21%</span>.</li>
+        <li data-tags="personalisation">Identified the Indian cultural sharing format ("User's Name ke taraf se good morning"), driving <span class="n">+22%</span> share and download. Increased notification CTR <span class="n">+14%</span> with a new notification design using custom-placement statics.</li>
+        <li data-tags="zero data"><strong>Creator growth:</strong> drove <span class="n">+20%</span> daily content creation in one quarter by revamping the creation flow. Built an internal moderation platform and tracking system for 6+ team members to ensure content quality.</li>
+        <li data-tags="funnel"><strong>Efficiency and local infrastructure:</strong> optimised for low-end devices and poor internet, critical for Tier 2 and Tier 3 adoption. Cut video processing by 13s via compression (+7% s/d). Optimised FPS (30 to 24) and enhanced video quality, keeping files under 2MB (+5% s/d).</li>
+      </ul>
+    </div>
+
+    <div class="exp-card reveal" data-tags="zero">
+      <div class="exp-head">
+        <h3>Associate Product Manager · Winuall</h3>
+        <span class="dates">May 2022 to Jul 2023</span>
+      </div>
+      <ul>
+        <li data-tags="zero">As solo PM, led a 15-person cross-functional team to build Edify, a refurbished-laptop platform, from 0 to 1, growing revenue <span class="n">2x</span>. Built internal inventory and invoicing tools to fix visibility between sales and procurement, minimising revenue loss.</li>
+        <li data-tags="zero">Designed and deployed pluggable architecture for the B2B SaaS platform to serve high-ticket clients' customisation needs: 6 plugins, <span class="n">2k+ installs</span>, <span class="n">66.2% adoption</span> within 90 days of launch.</li>
+        <li>Implemented a bug-fixing and feature-enhancement process: 131 backlog tasks cleared, turnaround cut from one week to 24 hours.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card reveal" data-tags="funnel data zero">
+      <div class="exp-head">
+        <h3>Founder's Office, Product &amp; Growth · Ohana Academy</h3>
+        <span class="dates">Jul 2021 to Apr 2022</span>
+      </div>
+      <ul>
+        <li data-tags="funnel">Redefined onboarding with 8+ functionality improvements: first-class enrollment <span class="n">+66%</span>, CAC down <span class="n">70.3%</span> in 6 months, leading a team of four (one designer, three engineers).</li>
+        <li data-tags="data zero">Deployed an automated user communication system from scratch (85% bot accuracy, 72% goal completion), lifting class attendance <span class="n">+75.6%</span>.</li>
+        <li data-tags="zero">Built GTM strategy from scratch, cracked partnership avenues for growth, and ran digital marketing at a CPC 43.7% better than the ed-tech industry average.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card reveal" data-tags="zero">
+      <div class="exp-head">
+        <h3>Founder · Beyond Overthinking</h3>
+        <span class="dates">Aug 2020 to Jul 2021</span>
+      </div>
+      <p class="context">A non-profit community that helps individuals uncover their true potential.</p>
+      <ul>
+        <li data-tags="zero">Impacted <span class="n">25k+ students</span>, conducted 30+ meetups with a 90% retention rate, organised 150+ self-reflective activities, and built strategic partnerships with two organizations.</li>
+        <li data-tags="zero">Led a team of 15 across growth, PR, community, social media, content, and design.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="method">
+    <div class="section-label">Symptoms to expect</div>
+    <h2>How I would add value on Predictive Growth</h2>
+    <p class="section-intro">Not ideas for your models. The working habits a pLTV platform needs from its PM.</p>
+    <div class="method-grid">
+      <div class="method-card reveal">
+        <h4>I have owned a ranking system in production</h4>
+        <p>The recommendation engine at Crafto taught me what <strong>the metrics never show</strong>: cold-start pain, feedback loops, the drift between what a system optimises and what users actually want.</p>
+      </div>
+      <div class="method-card reveal">
+        <h4>Fluent with data teams</h4>
+        <p>I partnered daily with data science on seeding, cohorts, and evaluation. I do not need <strong>the model explained twice</strong>, and I know when a plausible number is hiding a broken pipeline.</p>
+      </div>
+      <div class="method-card reveal">
+        <h4>Experimentation is my default</h4>
+        <p>Every lift on this page came from <strong>a program of experiments</strong>, not a launch. pLTV lives or dies on rigorous evaluation cadence: gated rollouts, holdouts, honest reads.</p>
+      </div>
+      <div class="method-card reveal">
+        <h4>Instrument first, argue never</h4>
+        <p>Every feature I ship is <strong>data-instrumented before launch</strong>. Predictions are only as good as their ground truth, and clean ground truth is a product habit, not a data-team request.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VELOCITY -->
+  <section>
+    <div class="velocity reveal">
+      <div class="section-label">Log period</div>
+      <h2>I build, not just spec</h2>
+      <p class="section-intro" style="margin-bottom: 0;">AI changed my operating speed. At Habuild I ship working, instrumented prototypes myself, then hand engineering a validated product instead of a document.</p>
+      <div class="vel-grid">
+        <div class="vel-item">
+          <div class="big">3 days</div>
+          <p>from concept to live, data-instrumented product. The old PM to design to eng cycle took 2 weeks.</p>
+        </div>
+        <div class="vel-item">
+          <div class="big">5+ features</div>
+          <p>shipped 0 to 1 with AI at Habuild, each Mixpanel-instrumented and validated with real members.</p>
+        </div>
+        <div class="vel-item">
+          <div class="big">Writing</div>
+          <p>Essays on building consumer products for the next billion users at <a href="https://khushisdigitalgarden.substack.com" target="_blank">khushisdigitalgarden</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <h2>Let's talk</h2>
+  <p class="edu">BA in Psychology, Sociology &amp; Economics · Banasthali Vidyapith · 9.01 CGPA</p>
+  <div class="cta-row">
+    <a class="pill pill-primary" href="mailto:khushibagai30.kb@gmail.com">khushibagai30.kb@gmail.com</a>
+    <a class="pill pill-ghost" href="https://www.linkedin.com/in/khushi-bagai" target="_blank">LinkedIn</a>
+    <a class="pill pill-ghost" href="https://khushisdigitalgarden.substack.com" target="_blank">Substack</a>
+  </div>
+</footer>
+
+<!-- TAB BAR -->
+<nav class="tabbar">
+  <a class="tab active" href="#today" data-section="today">
+    <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+    Today
+  </a>
+  <a class="tab" href="#fit" data-section="fit">
+    <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>
+    Signals
+  </a>
+  <a class="tab" href="#insights" data-section="insights">
+    <svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>
+    Insights
+  </a>
+  <a class="tab" href="#work" data-section="work">
+    <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="3"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    Work
+  </a>
+  <a class="tab" href="#contact" data-section="contact">
+    <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+    Contact
+  </a>
+</nav>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Count-up metrics
+  const co = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      co.unobserve(e.target);
+      const el = e.target, target = +el.dataset.target;
+      const prefix = el.dataset.prefix || '', suffix = el.dataset.suffix || '';
+      const dur = 1200, t0 = performance.now();
+      (function tick(t) {
+        const p = Math.min((t - t0) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = prefix + Math.round(target * eased) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.count').forEach(el => co.observe(el));
+
+  // Funnel bars animate on scroll
+  const fo = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      fo.unobserve(e.target);
+      e.target.querySelectorAll('.fill').forEach(f => { f.style.width = f.dataset.w + '%'; });
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.funnel-block').forEach(el => fo.observe(el));
+
+  // Toggle: built vs applied
+  const toggle = document.getElementById('trialToggle');
+  const vBuilt = document.getElementById('viewBuilt');
+  const vApplied = document.getElementById('viewApplied');
+  function flip() {
+    const on = toggle.classList.toggle('on');
+    toggle.setAttribute('aria-checked', on);
+    vBuilt.classList.toggle('active', !on);
+    vApplied.classList.toggle('active', on);
+  }
+  toggle.addEventListener('click', flip);
+  toggle.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+
+  // Chip filter
+  const chips = document.querySelectorAll('#chips .chip');
+  function selectChip(chip) {
+    chips.forEach(c => {
+      const on = c === chip;
+      c.classList.toggle('selected', on);
+      c.setAttribute('aria-pressed', on);
+    });
+    const tag = chip.dataset.tag;
+    document.querySelectorAll('.exp-card').forEach(card => {
+      const cardTags = (card.dataset.tags || '').split(' ');
+      const cardMatch = tag === 'all' || cardTags.includes(tag);
+      card.classList.toggle('dim-all', !cardMatch);
+      card.querySelectorAll('li').forEach(li => {
+        const liTags = (li.dataset.tags || '').split(' ');
+        li.classList.toggle('dim', tag !== 'all' && !liTags.includes(tag));
+      });
+    });
+  }
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => selectChip(chip));
+    chip.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectChip(chip); }
+    });
+  });
+
+  // Active tab on scroll
+  const sections = ['today','fit','insights','work','contact'].map(id => document.getElementById(id));
+  const tabs = document.querySelectorAll('.tab');
+  const so = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.section === e.target.id));
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => s && so.observe(s));
+
+  // The footer is too short to ever reach the observer band, so
+  // activate the Contact tab explicitly when scrolled to the bottom.
+  window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.section === 'contact'));
+    }
+  }, { passive: true });
+</script>
+
+</body>
+</html>
